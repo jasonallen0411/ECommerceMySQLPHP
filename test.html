@@ -1,0 +1,26 @@
+<script>
+        $('#detailsView').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget);
+    
+            var img = button.data('image');
+            var title = button.data('title');
+            var price = button.data('price');
+    
+            var modal = $(this)
+            modal.find('.modal-title').text(title)
+            modal.find('.details.img-responsive').src(img);
+            modal.find('get the price element').text(price);
+        })
+    </script>
+
+<button type="button"
+class="btn btn-primary"
+data-toggle="modal" 
+data-target="#detailsView" 
+data-title="<?php $product['title'] ?>" 
+data-image="<?php $product['image'] ?>" 
+data-id="<?php $product['id'] ?>"
+data-price="<?php $product['price'] ?>"
+>
+Details
+</button>
