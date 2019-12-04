@@ -3,6 +3,7 @@ body {
     margin: 0px;
     /* background-color: rgb(230, 91, 137); */
     background-color: rgb(243, 93, 76);
+    height: 100vh;
 }
 
 #navbar{
@@ -26,11 +27,8 @@ body {
 }
 
 #nav-linkA{
-    margin-top: -10px;
     padding-left: 12px;
     padding-right: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     color: rgb(252, 222, 92);
 }
 
@@ -43,6 +41,8 @@ body {
 
 .container{
     text-align: center;
+    position: relative;
+    top: -150px;
     margin: 0px auto;
 }
 
@@ -67,25 +67,27 @@ body {
 } */
 
 #text1{
-    margin-left: 30px;
-    margin-top: -10px;
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 12px;
     padding-bottom: 12px;
+    font-family: 'KG Summer Sunshine Shadow';
+    /* background-color: rgb(230, 91, 137); */
+    /* background-color: rgb(243, 93, 76); */
+    font-size: 24px;
+    color: rgb(252, 222, 92);
+}
+
+#text{
+    padding-left: 12px;
+    padding-right: 12px;
     /* background-color: rgb(230, 91, 137); */
     /* background-color: rgb(243, 93, 76); */
     color: rgb(252, 222, 92);
 }
 
-#text{
-    margin-top: -12px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    /* background-color: rgb(230, 91, 137); */
-    /* background-color: rgb(243, 93, 76); */
+#updateSuccess{
+    text-align: center;
     color: rgb(252, 222, 92);
 }
 
@@ -94,10 +96,10 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden;
-    height: 600px;
+    height: 400px;
     background-image: url(../images/sandBackground.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 700px;
+    background-size: 100% 400px;
     background-position: top center;
     background-attachment: fixed;
 }
@@ -127,9 +129,86 @@ body {
 }
 
 .FP{
-    display: block;
+    font-family: 'Pacifico';
+    /* font-family: 'KG Summer Sunshine'; */
+    /* font-family: 'SaltyBeach'; */
+    font-size: 100px;
+    /* display: block; */
+    position: relative;
+    top: -300px;
     text-align: center;
+    background-color: rgba( 250, 128, 114, .75);
     color: rgb(252, 222, 92);
+}
+
+.FP2{
+    font-family: 'Pacifico';
+    /* font-family: 'KG Summer Sunshine'; */
+    /* font-family: 'SaltyBeach'; */
+    font-size: 100px;
+    /* display: block; */
+    position: relative;
+    top: -350px;
+    text-align: center;
+    background-color: rgba( 250, 128, 114, .75);
+    color: rgb(252, 222, 92);
+}
+
+.FPA{
+    font-family: 'Pacifico';
+    /* font-family: 'KG Summer Sunshine'; */
+    /* font-family: 'SaltyBeach'; */
+    font-size: 100px;
+    /* display: block; */
+    position: relative;
+    top: -320px;
+    text-align: center;
+    background-color: rgba( 250, 128, 114, .75);
+    color: rgb(252, 222, 92);
+}
+
+.FPD{
+    font-family: 'Pacifico';
+    /* font-family: 'KG Summer Sunshine'; */
+    /* font-family: 'SaltyBeach'; */
+    font-size: 100px;
+    /* display: block; */
+    position: relative;
+    top: -320px;
+    text-align: center;
+    background-color: rgba( 250, 128, 114, .75);
+    color: rgb(252, 222, 92);
+}
+
+#backBtn{
+    position: relative;
+    top: -180px;
+    text-align: center;
+}
+
+#backBtnA{
+    position: relative;
+    top: -180px;
+    text-align: center;
+}
+
+#backBtnD{
+    position: relative;
+    top: -180px;
+    text-align: center;
+}
+
+#backBtn1{
+    text-align: center;
+}
+
+.card{
+    margin-top: 22px;
+}
+
+.card-img-top{
+    width: auto;
+    height: 200px;
 }
 
 .modalTitle{
@@ -150,9 +229,33 @@ body {
 }
 
 img.details{
-    width: auto;
+    width: 350px;
+    height: 350px;
     margin: 15px auto;
-    height:200px;
+}
+
+#PD{
+    margin-top: 10px;
+}
+
+#quantity-label{
+    display: inline-block;
+}
+
+#size-label{
+    display: inline-block;
+}
+
+#quantity{
+    width: 100px;
+    display: inline;
+}
+
+#size{
+    width: 100px;
+    margin-left: 30px;
+    display: inline;
+
 }
 
 /* .btn-sample { 

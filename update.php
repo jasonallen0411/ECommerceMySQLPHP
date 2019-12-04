@@ -12,17 +12,17 @@ function console_log($output, $with_script_tags = true)
 
 <?php
 require_once 'core/init.php';
-$sql = 'UPDATE products SET title="'. $_GET['editTitleText'] .'", list_price="'. $_GET['editPriceText'] .'", description="'. $_GET['editDescriptionText'] .'" WHERE id="'.$_GET['productId'].'"';
+$sql = 'UPDATE products SET title="'. $_GET['editTitleText'] .'", image="'. $_GET['editImageText'] .'",  list_price="'. $_GET['editPriceText'] .'", description="'. $_GET['editDescriptionText'] .'" WHERE id="'.$_GET['productId'].'"';
 
 //'UPDATE products SET title="'. $_GET['editTitleText'] .'", list_price="'. $_GET['editPriceText'] .'", description="'. $_GET['editDescriptionText'] .'", WHERE id="'.$_GET['productId'].'"';
 
 console_log($sql);
 if ($db->query($sql) === TRUE) {
     $message = "Record updated successfully: " . $_GET['editTitleText'];  
-    echo '<h2>' . $message . '</h2>'; 
+    // echo '<h2>' . $message . ' </h2>'; 
 } else {
     $message = "Error updating record: " . $conn->error; 
-    echo '<h2>' . $message . '</h2>'; 
+    // echo '<h2>' . $message . '</h2>'; 
 }
 
 
@@ -45,67 +45,7 @@ if ($db->query($sql) === TRUE) {
         <body>
 
 
-            <nav class="navbar navbar-expand-lg" id="navbar">
-                <a id="text1" class="navbar-brand" href="/WebAppIntegration%20Week%2014%20ECommerce%20Site/index.php">Salmon Sands Shop</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">+</span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" id="nav-linkA" href="edit.php">Edit</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Men
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Women
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Boys
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Girls
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+        <?php require "navbar.php"; ?>
 
             <div id="background-image">
                 <!-- <div id="image-1"></div>
@@ -114,8 +54,15 @@ if ($db->query($sql) === TRUE) {
 
 
                 
-            <div class="FP">
-                <h2>Featured Products</h2>
+            <div>
+                <h1 class="FP2">
+                    <?php $message = "Record updated successfully: " . $_GET['editTitleText']; ?>
+                    <?php echo  $message ; ?>
+                </h1>
+                <div id="backBtn1">
+                    <button id="backBtn" class="btn btn-sample">Back</button>
+                </div>
+                
             </div>
 
             <div class="container">
@@ -133,10 +80,9 @@ if ($db->query($sql) === TRUE) {
             <script src="js/bootstrap.min.js"></script>
             <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
             <script>
-                $(document).ready(function(){
-                    if(confirm(<?php $message ?> + ' Do you want to go back?')){
-                        window.location.href = "./index.php";
-                    }
+
+                $("#backBtn").click(function() {
+                    window.location.href = "./index.php";
                 });
                 
             </script>

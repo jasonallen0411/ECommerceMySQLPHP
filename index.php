@@ -31,67 +31,7 @@ function console_log($output, $with_script_tags = true)
 
         <body>
 
-            <nav class="navbar navbar-expand-lg" id="navbar">
-                <a id="text1" class="navbar-brand" href="/WebAppIntegration%20Week%2014%20ECommerce%20Site/index.php">Salmon Sands Shop</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">+</span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" id="nav-linkA" href="edit.php">Edit</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Men
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Women
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Boys
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Girls
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <?php require "navbar.php"; ?>
 
             <div id="background-image">
                 <!-- <div id="image-1"></div>
@@ -101,8 +41,8 @@ function console_log($output, $with_script_tags = true)
             <div class="col-md-2"></div>
 
             <div>
-                <div class="FP">
-                    <h2>Featured Products</h2>
+                <div>
+                    <h1 class="FP">Featured Products</h1>
                 </div>
 
                 <div class="container">
@@ -124,7 +64,7 @@ function console_log($output, $with_script_tags = true)
                                 </div>*/ 
                             ?>
 
-                    <div class="card col-md-3 mt-4">
+                    <div class="card col-md-3">
                         <div style="height: 170px; overflow: hidden;">
                             <img src="<?= $product['image']; ?>" alt="<?= $product['title']; ?>" class="card-img-top">
                         </div>
@@ -232,16 +172,14 @@ function console_log($output, $with_script_tags = true)
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h4>Details</h4>
+                                        <h4 id="PD">Product Description</h4>
                                         <p id="description1">
 
                                         </p>
                                         <hr />
-                                        <p id="price1">$
-
-                                        </p>
-                                        <p>Brand:</p>
-                                        <p>Levi's</p>
+                                       
+                                        <h5 id="price1">$</h5>
+                                        <p>Brand: Levi's</p>
                                         <form action="add_cart.php" method="post">
                                             <div class="form-group">
                                                 <div class="col-xs-3">
@@ -250,7 +188,7 @@ function console_log($output, $with_script_tags = true)
                                                 </div>
                                                 <br />
                                                 <div class="form-group">
-                                                    <label for="size">Size:</label>
+                                                    <label id="size-label" for="size">Size:</label>
                                                     <select name="size" id="size" class="form-control">
                                                         <option value=""></option>
                                                         <option class="sizes" value="28"></option>

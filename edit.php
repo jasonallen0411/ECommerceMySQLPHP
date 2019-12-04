@@ -32,67 +32,7 @@
         <body>
 
 
-            <nav class="navbar navbar-expand-lg" id="navbar">
-                <a id="text1" class="navbar-brand" href="/WebAppIntegration%20Week%2014%20ECommerce%20Site/index.php">Salmon Sands Shop</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">+</span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" id="nav-linkA" href="edit.php">Edit</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Men
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Women
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Boys
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="text" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Girls
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">Pants</a>
-                                <a class="dropdown-item" href="#">Shoes</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+        <?php require "navbar.php"; ?>
 
             <div id="background-image">
                 <!-- <div id="image-1"></div>
@@ -101,8 +41,8 @@
 
 
                 
-            <div class="FP">
-                <h2>Featured Products</h2>
+            <div>
+                <h2 class="FP"> Edit Featured Products</h2>
             </div>
 
             <div class="container">
@@ -111,7 +51,7 @@
                     while ($product = mysqli_fetch_assoc($featured)):
                 ?>
 
-                    <div class="card col-md-3 mt-4">
+                    <div class="card col-md-3">
                         <div style="height: 170px; overflow: hidden;">
                             <img src="<?= $product['image']; ?>" alt="<?= $product['title']; ?>" class="card-img-top">
                         </div>
@@ -146,7 +86,7 @@
                     endwhile;
                 ?>
 
-                    <div 
+                    <div id="addBtn"
                         class="card col-md-3 mt-4 addProduct" 
                         data-toggle="modal" 
                         data-target="#newProductView"
@@ -199,7 +139,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <h4>Details</h4>
+                                        <h4 id="PD">Product Description</h4>
                                             <span id="description1"></span>
                                             <span class="edit" id="editDescriptionBtn">Edit</span>
                                             <br>
@@ -208,7 +148,7 @@
                                                 <input id="updateDescriptionText" type="button" value="Update" class="btn btn-success">
                                             </div> 
                                             <hr />
-                                            <span id="price1">$</span>
+                                            <span id="price1"></span>
                                             <span class="edit" id="editPriceBtn">Edit</span>
                                             <br>
                                             <input type="hidden" id="productId" name="productId" value="">
@@ -239,6 +179,7 @@
             <!-- New Product Modal Start -->
             <div class="modal fade" id="newProductView" tabindex="-1" role="dialog" aria-labelledby="detailsView" aria-hidden="true">
                 <form method="get" action="add.php">
+                    <input type="hidden" name="uniqueId" id="uniqueId">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -284,12 +225,12 @@
 
                                             <div class="center-block">
                                                 <span id="productId"></span>
-                                                <span class="edit" id="editIdBtnProduct">Edit Id</span>
+                                                <!-- <span class="edit" id="editIdBtnProduct">Edit Id</span> -->
                                                 <br>
-                                                <div id="idWrap">  
+                                                <!-- <div id="idWrap">  
                                                     <input type="text" id="productIdProduct" name="productIdProduct" value="">
                                                     <input id="updateIdTextProduct" type="button" value="Update" class="btn btn-success"> 
-                                                </div>  
+                                                </div>   -->
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -335,7 +276,24 @@
             
             <!-- Jquery Modal Stuff -->
             <script>
+
+                function createID(){
+                    var startNo = [10,10,10,10,10,10,10,10,10];
+                    var finalNo = "";
+
+                    startNo.forEach(function(no){
+                        finalNo += Math.floor(Math.random() * no);
+                    });
+                    return finalNo;
+                }
+
+                $("#addBtn").click(function (){
+                    $("#uniqueId").attr("value", createID());
+                })
+
+
                 $('#detailsView').on('show.bs.modal', function(event) {
+                    
                     var button = $(event.relatedTarget);
 
                     var img = button.data('image');
@@ -351,6 +309,7 @@
                     modal.find('.modal-title').text(title);
                     modal.find('#productId').attr('value',productId);
                     modal.find('#productIdDelete').attr('value',productId);
+                    modal.find('#productIdProduct').text(productId);
                     modal.find('.details.img-responsive').attr("src", img);
                     modal.find('#price1').text(price);
                     modal.find('#price1Product').text(price);
@@ -359,6 +318,11 @@
                     modal.find('.sizes').text(sizes);
                     modal.find('.sizes2').text(sizes2);
                     modal.find('.sizes3').text(sizes3);
+                    $('#editTitleText').attr('value', title);
+                    $('#editImageText').attr('value', img);
+                    $('#editDescriptionText').attr('value', description);
+                    $('#editPriceText').attr('value', price.replace("$", ""));
+                    
                 });
 
                 
@@ -387,7 +351,11 @@
                 });
 
                 $("#editPriceBtn").click(function(){
-                    $("#priceWrap").toggle();
+                    if( $('#productId').val() == "" || !$('#productId').val().match('.') ){
+                        alert('Please enter the right format');
+                    } else {
+                        $("#priceWrap").toggle();
+                    }
                 });
 
                 $("#editTitleBtnProduct").click(function(){
